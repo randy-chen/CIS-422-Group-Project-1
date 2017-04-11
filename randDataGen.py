@@ -27,15 +27,28 @@ def oneDayData():
 	for i in outputList:
 		output += i+";"
 	output = output[:-1]
-	return str(output)
+	return output
 
-
-# Main Function interating for all 7 days of the week
-if __name__ == "__main__":
+# Format the string for the 7 days
+def finalCSV():
 	i = 0
 	finalOutputForCSV = ""
 	while i < 7:
 		finalOutputForCSV += oneDayData() + ","
 		i += 1
 	finalOutputForCSV = finalOutputForCSV[:-1]
-	print(finalOutputForCSV)
+	return finalOutputForCSV
+
+
+# Main Function interating for all 7 days of the week
+if __name__ == "__main__":
+	
+	# Clearing the contents of output.txt
+	open('output.txt', 'w').close()
+
+	i=0
+	while i < 40:
+		with open("text.txt", "a") as f:
+			f.write(finalCSV() + "\n")
+		i += 1
+		
