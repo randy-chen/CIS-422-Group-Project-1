@@ -2,4 +2,3 @@
 This is the repository for the first group project for CIS 422 taught by Dr. Michael Young.
 
 
-Our Group Name: # Dijkstr'a Dynamic Ducks
