@@ -35,13 +35,11 @@ class BuildList:
         AllKinds = []
         for kind in AllKinds:
             self.BuildModel(kind)
-        NewList = []
-        NewList.append(self.__workedModelList[0])
+        self.__UnSameWorkedList.append(self.__workedModelList[0])
         for workedmodel in self.__workedModelList:
-            for model in NewList:
+            for model in self.__UnSameWorkedList:
                 if(self.CheckSameModel(workedmodel, model) == False):
-                    NewList.append(workedmodel)
-        self.__UnSameWorkedList = NewList
+                    self.__UnSameWorkedList.append(workedmodel)
         return None
 
     def BuildModel(self, PersonList):
@@ -50,27 +48,29 @@ class BuildList:
             self.__workedModelList.append(model)
         return None
 
-    def CheckSameModel(self, ModelA, ModelB):
-        MAT = ModelA.GetTeamList()
-        MBT = ModelB.GetTeamList()
-        for AT in MAT:
-            for BT in MBT:
-                if(self.CheckSameTeam(AT, BT, True) == False):
-                    return False
-        return True
+    def CheckSameModel(self, workedmodel, sourcemodel):
+        workedteamlist = workedmodel.GetTeamList()
+        sourceteamlist = sourcemodel.GetTeamList()
+        sameteam = 0
+        for workedteam in workedteamlist:
+            for sourceteam in sourceteamlist:
+                if(self.CheckSameTeam(workedteam, sourceteam) == True):
+                    sameteam += 1
+        if (sameteam == self.__NoT + self.__NoF):
+            return True
+        return False
 
-    def CheckSameTeam(self, TeamA, TeamB, flag):
-        if(TeamA.getNumber() != TeamB.getNumber()):
-            flag = False
-        else:
-            sameperson = 0
-            for pa in TeamA:
-                for pb in TeamB:
-                    if(pa.getName() == pb.getName()):
-                        sameperson += 1
-            if(sameperson == TeamA.getNumber()):
-                flag = False
-        return flag
+    def CheckSameTeam(self, TeamA, TeamB):
+        if(TeamA.getNumber() == TeamB.getNumber()):
+            return False
+        sameperson = 0
+        for personA in TeamA:
+            for personB in TeamB:
+                if (personA.getID() == personB.getID()):
+                    sameperson += 1
+        if(sameperson == TeamA.getNumber()):
+            return True
+        return False
         
         
         

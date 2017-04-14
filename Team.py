@@ -43,7 +43,7 @@ class Team:
         l1 = p1.getDateList()
         l2 = p2.getDateList()
         l3 = p3.getDateList()
-        l4 = p3.getDateList()
+        l4 = p4.getDateList()
         i = 0
         while i < 91:
             if l1[i] == l2[i] == l3[i] == l4[i] == True:
