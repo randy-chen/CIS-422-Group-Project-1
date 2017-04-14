@@ -4,12 +4,13 @@ class Team:
     Person = Person.Person()
 
     def __init__(self, P1, P2, P3, P4=None):
+        self.__goodTeam = True
         self.__memberList = [P1, P2, P3, P4]
         self.__numberofteam = len(self.__memberList)
         self.__meetList = []
-        self.MeetTimeList()
+        self.Sort()
 
-    def MeetTimeList(self):
+    def Sort(self):
         ML = []
         p1 = self.__memberList[0]
         p2 = self.__memberList[1]
@@ -20,6 +21,7 @@ class Team:
             self.Mfor3(p1, p2, p3)
         else:
             self.Mfor4(p1,p2,p3,p4)
+        self.IfTimeWork()
         return None
 
     def Mfor3(self, p1, p2, p3):
@@ -57,7 +59,15 @@ class Team:
         while i < 91:
             if (self.__meetList[i] == True):
                 work += 1
-        if (work >= 2):
-            return True
-        else:
-            return False
+        if (work <= 2):
+            self.__goodTeam = False
+        return None
+
+    def getSituation(self):
+        return self.__goodTeam
+
+    def getTeamList(self):
+        return self.__memberList
+
+    def getNumber(self):
+        return self.__numberofteam
