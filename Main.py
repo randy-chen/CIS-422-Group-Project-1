@@ -3,9 +3,16 @@ import csv
 
 global Main
 Main = Main.Main()
+global Person
+Person = Person.Person()
+global Team
+Team = Team.Team()
+global Model
+Model = Model.Model()
 
 def Start():
-    Main.ImportList()
+    fileName = 'aaa.csv'
+    Main.ImportList(fileName)
     return None
 
 class Main:
@@ -16,7 +23,7 @@ class Main:
     ### to identify which columns to use. (Does not check ID, yet.)
     ### Returns a list of lists with:
     ### [[name, email, [True, False, etc],[
-    def ImportList(fileName):  # fileName should end in .csv
+    def ImportList(self, fileName):  # fileName should end in .csv
 
         try:  # to load the csv file.
             with open(fileName, 'r') as f:

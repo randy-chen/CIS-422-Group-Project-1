@@ -1,6 +1,6 @@
 class Person:
 
-    NumberOfPerson = 0;
+    NumberOfPerson = 0
 
     def __init__(self, name, id, email, datelist):
         self.__name = name
@@ -8,16 +8,16 @@ class Person:
         self.__email = email
         self.__datelist = datelist
 
-    def getName(self):
+    def getName(self): #Return the name of person
         return self.__name
 
-    def getID(self):
+    def getID(self): #Return the ID of person
         return self.__id
 
-    def getEmail(self):
+    def getEmail(self): #Return the email of person
         return self.__email
 
-    def getDateList(self):
+    def getDateList(self): #Return the availbale time list of person
         return self.__datelist
 
     def setName(self, name):

@@ -9,16 +9,16 @@ class BuildList:
     global Model
     Model = Model.Model()
 
-    def __init__(self, Input):
+    def __init__(self, Input): #Input = [[name, ide, email, [True, False, False]],......]
         self.__workedModelList = []
         self.__PersonList = []
         self.__UnSameWorkedList = []
         self.__NoT = 0
         self.__NoF = 0
         self.BuildPersonList(Input)
-        self.__Final = None
+        self.__Final = None #Final output
 
-    def BuildPersonList(self, input):
+    def BuildPersonList(self, input): #Build person list by Input and decide number of four and three person team
         while len(input) != 0:
             person = input.pop
             name = person.pop
@@ -34,8 +34,7 @@ class BuildList:
         return None
 
     def Creat(self):
-        ListofPerson = self.__PersonList
-        AllKinds = itertools.permutations(ListofPerson)
+        AllKinds = itertools.permutations(self.__PersonList) #Get all permunatation of person list
         for kind in AllKinds:
             self.BuildModel(kind)
         self.Reform()
@@ -46,13 +45,13 @@ class BuildList:
         self.__Final = self.__UnSameWorkedList[0]
         return None
 
-    def BuildModel(self, PersonList):
+    def BuildModel(self, PersonList): #Build Model
         model = Model(self.__NoT, self.__NoF, PersonList)
-        if(model.GetModelSituation() == True):
+        if(model.GetModelSituation() == True): #Check if model work
             self.__workedModelList.append(model)
         return None
 
-    def CheckSameModel(self, workedmodel, sourcemodel):
+    def CheckSameModel(self, workedmodel, sourcemodel): #Check if two model are same
         numberofteam = self.__NoF + self.__NoT
         workedteamlist = workedmodel.GetTeamList()
         sourceteamlist = sourcemodel.GetTeamList()
@@ -65,7 +64,7 @@ class BuildList:
             return True
         return False
 
-    def CheckSameTeam(self, TeamA, TeamB):
+    def CheckSameTeam(self, TeamA, TeamB): #Check if two team has same person by check their ID.
         if(TeamA.getNumber() != TeamB.getNumber()):
             return False
         sameperson = 0
@@ -77,7 +76,7 @@ class BuildList:
             return True
         return False
         
-    def Reform(self):
+    def Reform(self): #Remfor the number of three person team and four person team
         if (self.__workedModelList == []):
             self.__NoT = self.__NoT - 4
             self.__NoF = self.__NoF + 3
