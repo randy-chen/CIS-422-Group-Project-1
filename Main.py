@@ -84,7 +84,7 @@ class Main:
             for key, val in weekDict.items():
                 if val >= 0 and csv_list[i][val] != "":
                     dayStr = "" + csv_list[i][val] + ""
-                    availableTimes = TimeSplit(dayStr, availableTimes, weekDay[key])
+                    availableTimes = self.TimeSplit(dayStr, availableTimes, weekDay[key])
 
             personData.append(availableTimes)
             # print (personData)
@@ -101,7 +101,7 @@ class Main:
     ### AKA dayOffset.
     ### It is assumed that the earliest time available is 8am
     ### AKA startOfDay
-    def TimeSplit(dayString, availableTimes, dayOffset):
+    def TimeSplit(self, dayString, availableTimes, dayOffset):
         dayOffset = 13 * dayOffset
         startOfDay = 8
         endOfDay = startOfDay + 13
