@@ -1,4 +1,4 @@
-import sys
+import itertools
 
 class BuildList:
 
@@ -25,7 +25,8 @@ class BuildList:
             email = person.pop
             time = person.pop
             self.__PersonList.append(Person(name, id, email, time))
-        n = len(self.__PersonList)
+            Person.NumberOfPerson += 1
+        n = Person.NumberOfPerson
         self.__NoF = n%3
         self.__NoT = n/3 - n%3
         self.Creat()
@@ -33,13 +34,13 @@ class BuildList:
 
     def Creat(self):
         ListofPerson = self.__PersonList
-
-
-        AllKinds = []
+        AllKinds = itertools.permutations(ListofPerson)
         for kind in AllKinds:
             self.BuildModel(kind)
-        self.__UnSameWorkedList.append(self.__workedModelList[0])
+
+
         self.Reform()
+        self.__UnSameWorkedList.append(self.__workedModelList[0])
         for workedmodel in self.__workedModelList:
             for model in self.__UnSameWorkedList:
                 if(self.CheckSameModel(workedmodel, model) == False):
