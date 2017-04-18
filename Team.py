@@ -30,7 +30,7 @@ class Team:
         while i < 91:
             if (self.__meetList[i] == True):
                 work += 1
-        if (work <= 2):
+        if (work <= 2): #min 2 hrs in common
             self.__goodTeam = False
         return None
 
