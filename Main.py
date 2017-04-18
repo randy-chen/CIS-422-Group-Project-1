@@ -9,10 +9,14 @@ global Team
 Team = Team.Team()
 global Model
 Model = Model.Model()
+global BuildList
+BuildList = BuildList.BuildList()
 
 def Start():
     fileName = 'aaa.csv'
-    Main.ImportList(fileName)
+    Inout = Main.ImportList(fileName)
+    Output = BuildList(Inout)
+    Result = Output.__Final
     return None
 
 class Main:
