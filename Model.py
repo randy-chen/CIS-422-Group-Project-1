@@ -9,6 +9,8 @@ class Model:
         self.__NumberOfFourPersonTeam = NoF
         self.__goodModel = True
         self.DevideIntoTeam(PersonList)
+        self.__Grade = 0
+        self.CaculateTimeGrade()
 
     def DevideIntoTeam(self, PersonList): #Build team list
         t = self.__NumberOfThreePersonTeam
@@ -40,3 +42,8 @@ class Model:
 
     def GetTeamList(self):
         return self.__TeamList
+
+    def CaculateTimeGrade(self):
+        for team in self.__TeamList:
+            self.__Grade = self.__Grade + team.GetGrade()
+        return None

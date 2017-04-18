@@ -9,6 +9,8 @@ class Team:
         self.__numberofteam = len(self.__memberList)
         self.__meetList = []
         self.SORT(P1, P2, P3, P4)
+        self.__Grade = 0
+        self.CaculateTimeGrade()
 
     def SORT(self, p1, p2, p3, p4=None): #Build the List of time which is worked for everyone in team
         ML = []
@@ -42,3 +44,19 @@ class Team:
 
     def getNumber(self):
         return self.__numberofteam
+
+    def CaculateTimeGrade(self):
+        T = 0
+        for time in self.__meetList:
+            if (time == True):
+                T += 1
+        if (T <= 4):
+            self.__Grade = (T-2)*10
+        elif (T <= 8):
+            self.__Grade = 20 + (T-4)*5
+        else:
+            self.__Grade = 40 + (T-8)
+        return None
+
+    def GetGrade(self):
+        return self.__Grade
