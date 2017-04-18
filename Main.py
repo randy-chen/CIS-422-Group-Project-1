@@ -1,11 +1,14 @@
 import sys
 import csv
 
-def main():
-    fileName = "aaa"
-    ImportList(fileName)
+global Main
+Main = Main.Main()
+
+def Start():
+    Main.ImportList()
     return None
 
+class Main:
     ###########################
     ### Import info from csv file. Should be passed the file name
     ### with an .csv ending. Only looks in current directory.
@@ -111,3 +114,5 @@ def main():
                 availableTimes[dayTrue] = True
 
         return availableTimes
+
+Start()
