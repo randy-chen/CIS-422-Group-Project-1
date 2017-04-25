@@ -48,7 +48,7 @@ def randomData(n, sizeOfGroup):
 
 if __name__ == "__main__":
 
-	amountOfPermutations = 100000  # Change value for the amount of permutations
+	amountOfPermutations = 1000  # Change value for the amount of permutations
 	sizeOfGroup = 3
 	os.system("mkdir Permutations" + str(amountOfPermutations) + "/")
 
