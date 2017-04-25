@@ -13,7 +13,7 @@ global BuildList
 BuildList = BuildList.BuildList()
 
 def Start():
-    fileName = 'aaa.csv'
+    fileName = 'aaa.csv' #need to hardcode the path from react
     Inout = Main.ImportList(fileName)
     Output = BuildList(Inout)
     Result = Output.__Final
