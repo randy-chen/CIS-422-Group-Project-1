@@ -48,14 +48,14 @@ def randomData(n, sizeOfGroup):
 
 if __name__ == "__main__":
 
-	amountOfPermutations = 1000  # Change value for the amount of permutations
+	amountOfPermutations = 10000  # Change value for the amount of permutations
 	sizeOfGroup = 3
-	os.system("mkdir Permutations" + str(amountOfPermutations) + "/")
+	os.system("mkdir Permutations/" + str(amountOfPermutations) + "/")
 
 	for classSize in range(15, 51):
 		
-		name = "size" + str(classSize) + "Perm" + str(amountOfPermutations)
-		path = "./Permutations" + str(amountOfPermutations) + "/"
+		name = str(classSize)
+		path = "./Permutations/" + str(amountOfPermutations) + "/"
 		fileName = path + name + ".txt"
 		f = open(fileName,'w')
 
