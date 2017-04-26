@@ -7,6 +7,7 @@ class Grade:
         self.__memberList = PersonList
         self.__numberofteam = len(self.__memberList)
         self.__meetList = []
+        self.__meetingtime = 0
         self.__Grade = -1000
         self.CaculateTimeGrade()
 
@@ -30,10 +31,10 @@ class Grade:
         while i < 91:
             if p1[i] == p2[i] == p3[i] == p4[i] == True:
                 ML.append(True)
-                i += 1
             else:
                 ML.append(False)
-                i += 1
+                self.__meetingtime += 1
+            i += 1
         self.__meetList = ML
         self.CaculateTimeGrade()
         return None
@@ -45,10 +46,7 @@ class Grade:
         return self.__numberofteam
 
     def CaculateTimeGrade(self):
-        T = 0
-        for time in self.__meetList:
-            if (time == True):
-                T += 1
+        T = self.__meetingtime
         if(T>0):
             self.__Grade = 0
             if(T<4):

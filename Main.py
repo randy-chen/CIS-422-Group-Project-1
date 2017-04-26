@@ -1,14 +1,13 @@
 import sys
 import csv
 
-global BuildList
-BuildList = BuildList.BuildList()
-
 def Start():
+    global BuildList
+    BuildList = BuildList.buildlist()
+    main = Main()
     fileName = 'Test_Data_For_422_Small.csv' #need to hardcode the path from react
-    Input = Main.ImportList(fileName)
-    Output = BuildList(Input)
-    Result = Output.__Final
+    Input = main.ImportList(fileName)
+    OutPut = BuildList(Input)
     return None
 
 class Main:

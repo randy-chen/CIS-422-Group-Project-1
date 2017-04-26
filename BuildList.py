@@ -1,6 +1,4 @@
-import itertools
-
-class BuildList:
+class buildlist:
 
     global Person
     Person = Person.Person()
@@ -11,8 +9,9 @@ class BuildList:
 
     def __init__(self, Input): #Input = [[name, ide, email, [True, False, False]],......]
         self.__PersonList = []
-        self.BuildPersonList(Input)
         self.__Final = [] #Final output
+        self.BuildPersonList(Input)
+        self.Final()
 
     def BuildPersonList(self, input): #Build person list by Input and decide number of four and three person team
         while len(input) != 0:
@@ -54,3 +53,6 @@ class BuildList:
         if (len(self.__Final) > 3):
             self.__Final.pop()
         return None
+
+    def Final(self):
+        return self.__Final
