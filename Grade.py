@@ -11,12 +11,17 @@ class Grade:
         self.CaculateTimeGrade()
 
     def Devid(self, List):
-        p1 = self.__memberList.pop()
-        p2 = self.__memberList.pop()
-        p3 = self.__memberList.pop()
-        if(self.__memberList == 4):
-            p4 = self.__memberList.pop()
-        self.SORT(p1, p2, p3, p4)
+        if (self.__memberList == 4):
+            p1 = self.__memberList[0]
+            p2 = self.__memberList[1]
+            p3 = self.__memberList[2]
+            p4 = self.__memberList[3]
+            self.SORT(p1, p2, p3, p4)
+        else:
+            p1 = self.__memberList[0]
+            p2 = self.__memberList[1]
+            p3 = self.__memberList[2]
+            self.SORT(p1, p2, p3)
 
 
     def SORT(self, p1, p2, p3, p4=None): #Build the List of time which is worked for everyone in team
