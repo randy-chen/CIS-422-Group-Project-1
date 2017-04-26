@@ -167,7 +167,7 @@ class Buildlist:
                     self.__Final.insert(i, Permunatetion)
                     break
         if (len(self.__Final) > 3):
-            self.__Final.pop()
+            self.__Final = self.__Final[:3]
         return None
 
     def Final(self):
@@ -196,9 +196,9 @@ class Team:
         self.__meetList = []
         self.__meetingtime = 0
         self.__Grade = -1000
-        self.CaculateTimeGrade()
+        self.Devid()
 
-    def Devid(self, List):
+    def Devid(self):
         if (self.__memberList == 4):
             p1 = self.__memberList[0]
             p2 = self.__memberList[1]
