@@ -47,3 +47,6 @@ class Model:
         for team in self.__TeamList:
             self.__Grade = self.__Grade + team.GetGrade()
         return None
+
+    def GetGrade(self):
+        return self.__Grade
