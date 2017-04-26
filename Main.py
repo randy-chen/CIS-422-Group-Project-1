@@ -2,13 +2,14 @@ import sys
 import csv
 
 def Start():
-    main = Main()
+    deal = Deal()
     fileName = 'Test_Data_For_422_Small.csv' #need to hardcode the path from react
-    Input = main.ImportList(fileName)
-    OutPut = Buildlist(Input)
+    Input = deal.ImportList(fileName)
+    bl = Buildlist(Input)
+    OutPut = bl.Final()
     return None
 
-class Main:
+class Deal:
     ###########################
     ### Import info from csv file. Should be passed the file name
     ### with an .csv ending. Only looks in current directory.
@@ -121,12 +122,11 @@ class Main:
         return availableTimes
 
 class Buildlist:
-
     def __init__(self, Input): #Input = [[name, ide, email, [True, False, False]],......]
         self.__PersonList = []
+        self.__NoP = 0
         self.__Final = [] #Final output
         self.BuildPersonList(Input)
-        self.Final()
 
     def BuildPersonList(self, input): #Build person list by Input and decide number of four and three person team
         while len(input) != 0:
@@ -136,12 +136,12 @@ class Buildlist:
             email = person.pop(0)
             time = person.pop(0)
             self.__PersonList.append(Person(name, id, email, time))
-            Person.NumberOfPerson += 1
+            self.__NoP += 1
         self.Creat()
         return None
 
     def Creat(self):
-        filename = "./Permutations/10000/" + str(Person.NumberOfPerson) + ".txt"
+        filename = "./Permutations/10000/" + str(self.__NoP) + ".txt"
         f = open(filename, 'r')
         for Line in f:
             TeamList = []
@@ -150,10 +150,10 @@ class Buildlist:
                 for index in Part:
                     if(index != "[" and index != "]" and index != "," and index != " " and index != "\n"):
                         PersonList.append(self.__PersonList[int(index)])
-                Team = Grade(PersonList)
-                TeamList.append(Team)
-            Model = Caculate(TeamList)
-            self.GetFinal(Model)
+                team = Team(PersonList)
+                TeamList.append(team)
+            model = Model(TeamList)
+            self.GetFinal(model)
         return None
 
     def GetFinal(self, Permunatetion):
@@ -173,8 +173,23 @@ class Buildlist:
     def Final(self):
         return self.__Final
 
-class Grade:
+class Model:
+    def __init__(self, TeamList):
+        self.__TeamList = TeamList
+        self.__Grade = 0
+        self.CG()
 
+    def CG(self):
+        for team in self.__TeamList:
+            self.__Grade += team.GetGrade()
+
+    def GetGradeList(self):
+        return self.__TeamList
+
+    def GetGrade(self):
+        return self.__Grade
+
+class Team:
     def __init__(self, PersonList): #Take four or three person information to build team
         self.__memberList = PersonList
         self.__numberofteam = len(self.__memberList)
@@ -196,7 +211,6 @@ class Grade:
             p3 = self.__memberList[2]
             self.SORT(p1, p2, p3)
 
-
     def SORT(self, p1, p2, p3, p4=None): #Build the List of time which is worked for everyone in team
         ML = []
         i = 0
@@ -213,9 +227,6 @@ class Grade:
 
     def getTeamList(self):
         return self.__memberList
-
-    def getNumber(self):
-        return self.__numberofteam
 
     def CaculateTimeGrade(self):
         T = self.__meetingtime
@@ -234,27 +245,7 @@ class Grade:
     def GetGrade(self):
         return self.__Grade
 
-class Caculate:
-
-    def __init__(self, GradeList):
-        self.__TeamList = GradeList
-        self.__Grade = 0
-        self.CG()
-
-    def CG(self):
-        for team in self.__TeamList:
-            self.__Grade += team.GetGrade()
-
-    def GetGradeList(self):
-        return self.__TeamList
-
-    def GetGrade(self):
-        return self.__Grade
-
 class Person:
-
-    NumberOfPerson = 0
-
     def __init__(self, name, id, email, datelist):
         self.__name = name
         self.__id = id
@@ -272,20 +263,5 @@ class Person:
 
     def getDateList(self): #Return the availbale time list of person
         return self.__datelist
-
-    def setName(self, name):
-        self.__name = name
-        return None
-
-    def setID(self, id):
-        self.__id = id
-
-    def setEmail(self, email):
-        self.__email = email
-        return None
-
-    def setDateList(self, datelist):
-        self.__datelist = datelist
-        return None
 
 Start()
