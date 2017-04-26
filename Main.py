@@ -1,5 +1,6 @@
 import sys
 import csv
+import ast
 
 def Start():
     deal = Deal()
@@ -7,6 +8,18 @@ def Start():
     Input = deal.ImportList(fileName)
     bl = Buildlist(Input)
     OutPut = bl.Final()
+    M = 0
+    for Model in OutPut:
+        M += 1
+        print("Model", M)
+        TeamList = Model.GetTeamList()
+        T = 0
+        for Team in TeamList:
+            T += 1
+            print("Team", T)
+            PersonList = Team.getPersonList()
+            for Person in PersonList:
+                print(Person.getName())
     return None
 
 class Deal:
@@ -144,12 +157,12 @@ class Buildlist:
         filename = "./Permutations/10000/" + str(self.__NoP) + ".txt"
         f = open(filename, 'r')
         for Line in f:
+            Line = ast.literal_eval(Line)
             TeamList = []
             for Part in Line:
                 PersonList = []
                 for index in Part:
-                    if(index != "[" and index != "]" and index != "," and index != " " and index != "\n"):
-                        PersonList.append(self.__PersonList[int(index)])
+                    PersonList.append(self.__PersonList[index])
                 team = Team(PersonList)
                 TeamList.append(team)
             model = Model(TeamList)
@@ -183,7 +196,7 @@ class Model:
         for team in self.__TeamList:
             self.__Grade += team.GetGrade()
 
-    def GetGradeList(self):
+    def GetTeamList(self):
         return self.__TeamList
 
     def GetGrade(self):
@@ -204,18 +217,21 @@ class Team:
             p2 = self.__memberList[1]
             p3 = self.__memberList[2]
             p4 = self.__memberList[3]
-            self.SORT(p1, p2, p3, p4)
+            self.SORT4(p1, p2, p3, p4)
         else:
             p1 = self.__memberList[0]
             p2 = self.__memberList[1]
             p3 = self.__memberList[2]
-            self.SORT(p1, p2, p3)
+            self.SORT3(p1, p2, p3)
 
-    def SORT(self, p1, p2, p3, p4=None): #Build the List of time which is worked for everyone in team
+    def SORT3(self, p1, p2, p3): #Build the List of time which is worked for everyone in team
         ML = []
         i = 0
+        l1 = p1.getDateList()
+        l2 = p2.getDateList()
+        l3 = p3.getDateList()
         while i < 91:
-            if p1[i] == p2[i] == p3[i] == p4[i] == True:
+            if l1[i] == l2[i] == l3[i] == True:
                 ML.append(True)
             else:
                 ML.append(False)
@@ -225,7 +241,25 @@ class Team:
         self.CaculateTimeGrade()
         return None
 
-    def getTeamList(self):
+    def SORT4(self, p1, p2, p3, p4=None): #Build the List of time which is worked for everyone in team
+        ML = []
+        i = 0
+        l1 = p1.getDateList()
+        l2 = p2.getDateList()
+        l3 = p3.getDateList()
+        l4 = p4.getDateList()
+        while i < 91:
+            if l1[i] == l2[i] == l3[i] == l4[i] == True:
+                ML.append(True)
+            else:
+                ML.append(False)
+                self.__meetingtime += 1
+            i += 1
+        self.__meetList = ML
+        self.CaculateTimeGrade()
+        return None
+
+    def getPersonList(self):
         return self.__memberList
 
     def CaculateTimeGrade(self):
