@@ -2,12 +2,10 @@ import sys
 import csv
 
 def Start():
-    global BuildList
-    BuildList = BuildList.buildlist()
     main = Main()
     fileName = 'Test_Data_For_422_Small.csv' #need to hardcode the path from react
     Input = main.ImportList(fileName)
-    OutPut = BuildList(Input)
+    OutPut = Buildlist(Input)
     return None
 
 class Main:
@@ -121,5 +119,172 @@ class Main:
                 availableTimes[dayTrue] = True
 
         return availableTimes
+
+class Buildlist:
+
+    def __init__(self, Input): #Input = [[name, ide, email, [True, False, False]],......]
+        self.__PersonList = []
+        self.__Final = [] #Final output
+        self.BuildPersonList(Input)
+        self.Final()
+
+    def BuildPersonList(self, input): #Build person list by Input and decide number of four and three person team
+        while len(input) != 0:
+            person = input.pop(0)
+            name = person.pop(0)
+            id = person.pop(0)
+            email = person.pop(0)
+            time = person.pop(0)
+            self.__PersonList.append(Person(name, id, email, time))
+            Person.NumberOfPerson += 1
+        self.Creat()
+        return None
+
+    def Creat(self):
+        filename = "./Permutations/10000/" + str(Person.NumberOfPerson) + ".txt"
+        f = open(filename, 'r')
+        for Line in f:
+            TeamList = []
+            for Part in Line:
+                PersonList = []
+                for index in Part:
+                    PersonList.append(self.__PersonList[int(index)])
+                Team = Grade(PersonList)
+                TeamList.append(Team)
+            Model = Caculate(TeamList)
+            self.GetFinal(Model)
+        return None
+
+    def GetFinal(self, Permunatetion):
+        if(self.__Final == []):
+            self.__Final.append(Permunatetion)
+        else:
+            x = len(self.__Final)
+            for x in self.__Final:
+                if(Permunatetion.GetGrade() >= x.GetGrade()):
+                    i = self.__Final.index(x)
+                    self.__Final.insert(i, Permunatetion)
+                    break
+        if (len(self.__Final) > 3):
+            self.__Final.pop()
+        return None
+
+    def Final(self):
+        return self.__Final
+
+class Grade:
+
+    def __init__(self, PersonList): #Take four or three person information to build team
+        self.__memberList = PersonList
+        self.__numberofteam = len(self.__memberList)
+        self.__meetList = []
+        self.__meetingtime = 0
+        self.__Grade = -1000
+        self.CaculateTimeGrade()
+
+    def Devid(self, List):
+        if (self.__memberList == 4):
+            p1 = self.__memberList[0]
+            p2 = self.__memberList[1]
+            p3 = self.__memberList[2]
+            p4 = self.__memberList[3]
+            self.SORT(p1, p2, p3, p4)
+        else:
+            p1 = self.__memberList[0]
+            p2 = self.__memberList[1]
+            p3 = self.__memberList[2]
+            self.SORT(p1, p2, p3)
+
+
+    def SORT(self, p1, p2, p3, p4=None): #Build the List of time which is worked for everyone in team
+        ML = []
+        i = 0
+        while i < 91:
+            if p1[i] == p2[i] == p3[i] == p4[i] == True:
+                ML.append(True)
+            else:
+                ML.append(False)
+                self.__meetingtime += 1
+            i += 1
+        self.__meetList = ML
+        self.CaculateTimeGrade()
+        return None
+
+    def getTeamList(self):
+        return self.__memberList
+
+    def getNumber(self):
+        return self.__numberofteam
+
+    def CaculateTimeGrade(self):
+        T = self.__meetingtime
+        if(T>0):
+            self.__Grade = 0
+            if(T<4):
+                self.__Grade = T*10
+            elif(T<8):
+                self.__Grade = 40 + (T-4)*5
+            else:
+                self.__Grade = 60 + (T-8)
+            return  None
+        else:
+            return None
+
+    def GetGrade(self):
+        return self.__Grade
+
+class Caculate:
+
+    def __init__(self, GradeList):
+        self.__TeamList = GradeList
+        self.__Grade = 0
+        self.CG()
+
+    def CG(self):
+        for team in self.__TeamList:
+            self.__Grade += team.GetGrade()
+
+    def GetGradeList(self):
+        return self.__TeamList
+
+    def GetGrade(self):
+        return self.__Grade
+
+class Person:
+
+    NumberOfPerson = 0
+
+    def __init__(self, name, id, email, datelist):
+        self.__name = name
+        self.__id = id
+        self.__email = email
+        self.__datelist = datelist
+
+    def getName(self): #Return the name of person
+        return self.__name
+
+    def getID(self): #Return the ID of person
+        return self.__id
+
+    def getEmail(self): #Return the email of person
+        return self.__email
+
+    def getDateList(self): #Return the availbale time list of person
+        return self.__datelist
+
+    def setName(self, name):
+        self.__name = name
+        return None
+
+    def setID(self, id):
+        self.__id = id
+
+    def setEmail(self, email):
+        self.__email = email
+        return None
+
+    def setDateList(self, datelist):
+        self.__datelist = datelist
+        return None
 
 Start()
