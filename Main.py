@@ -1,21 +1,13 @@
 import sys
 import csv
 
-global Main
-Main = Main.Main()
-global Person
-Person = Person.Person()
-global Team
-Team = Team.Team()
-global Model
-Model = Model.Model()
 global BuildList
 BuildList = BuildList.BuildList()
 
 def Start():
-    fileName = 'aaa.csv' #need to hardcode the path from react
-    Inout = Main.ImportList(fileName)
-    Output = BuildList(Inout)
+    fileName = 'Test_Data_For_422_Small.csv' #need to hardcode the path from react
+    Input = Main.ImportList(fileName)
+    Output = BuildList(Input)
     Result = Output.__Final
     return None
 
@@ -42,12 +34,17 @@ class Main:
         weekDict = {'Sunday': -1, 'Monday': -1, 'Tuesday': -1, 'Wednesday': -1, 'Thursday': -1, 'Friday': -1,
                     'Saturday': -1}
         listHeaders = []  # What did they name the columns in the CSV?
+        fullName = None
+        IDnumber = None
+        eMail = None
 
         # Check and Load the column names and numbers.
         for i in range(1, len(csv_list[0])):
             listHeaders.append("" + csv_list[0][i] + "")
             if "Name" in csv_list[0][i]:
                 fullName = i
+            if "ID" in csv_list[0][i] or "id" in csv_list[0][i]:
+                IDnumber = i
             if "Email" in csv_list[0][i] or "E-mail" in csv_list[0][i]:
                 eMail = i
             if csv_list[0][i] == "Sunday":
