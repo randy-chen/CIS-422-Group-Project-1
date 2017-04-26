@@ -148,7 +148,8 @@ class Buildlist:
             for Part in Line:
                 PersonList = []
                 for index in Part:
-                    PersonList.append(self.__PersonList[int(index)])
+                    if(index != "[" and index != "]" and index != "," and index != " " and index != "\n"):
+                        PersonList.append(self.__PersonList[int(index)])
                 Team = Grade(PersonList)
                 TeamList.append(Team)
             Model = Caculate(TeamList)
