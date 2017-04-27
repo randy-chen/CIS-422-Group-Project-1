@@ -5,7 +5,7 @@ Welcome to the Team Builder Project!
 
 This is the GitHub repository for the first group project for CIS 422 taught by Dr. Michael Young.
 
-Founded in 2017, Dijkstra's Dynamic Ducks is composed of several [contributors](Documentation/Process/CONTRIBUTORS.md). 
+Founded in 2017, Dijkstra's Dynamic Ducks is composed of several [contributors](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Contributors). 
 At the moment, this program will allow you to sort a classroom of people into their best groups 
 of around three people.  We are an inclusive, welcoming project, and encourage participation from 
 people of all backgrounds and skill levels.
