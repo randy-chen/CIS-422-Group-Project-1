@@ -1,9 +1,0 @@
-//Documentation TODO
-
-A brief synopsis - the Readme on the repo
-Instilation documentation
-User documentation/ Tutorial Documentation
-User Reference Documentation
-Developer / Maintinence Documentation
-Modularity / Architecural design
-Examples for Imitation

@@ -5,7 +5,7 @@ Welcome to the Team Builder Project!
 
 This is the GitHub repository for the first group project for CIS 422 taught by Dr. Michael Young.
 
-Founded in 2017, Dijkstra's Dynamic Ducks is composed of several [contributors](Documentation/CONTRIBUTORS.md). 
+Founded in 2017, Dijkstra's Dynamic Ducks is composed of several [contributors](Documentation/Process/CONTRIBUTORS.md). 
 At the moment, this program will allow you to sort a classroom of people into their best groups 
 of around three people.  We are an inclusive, welcoming project, and encourage participation from 
 people of all backgrounds and skill levels.
@@ -20,23 +20,19 @@ in mind. Our algorithm searches out and finds the classroom of teams that allows
 most overlap. Giving your students the best chance to be the best team they can be!
 
 
-## Important links
+## Important Links Starting Out
 
-These need to be updated 
-* [Issues](http://github.com/Growstuff/growstuff/issues) (features we're
-  working on, known bugs, etc)
-* [Wiki](https://github.com/Growstuff/growstuff/wiki) (general documentation, etc. Help by migrating from the [old wiki](https://web.archive.org/web/*/wiki.growstuff.org))
+* [Installing](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/User_Docs/INSTALL.md) (this document will help you download the necessary components for the application)
+* [First Walk Through](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/User_Docs/USE.md) (gives an initial walk through of how to use the application)
 
 
 Here on Github, you might find these useful:
 
-These need to be updated
-* [Waffle](http://waffle.io/Growstuff/growstuff) has stories in "ready" that can be worked on.
-* [needs: design](https://github.com/Growstuff/growstuff/labels/needs:%20design) - tasks requiring high-level design
-* [needs: visual design](https://github.com/Growstuff/growstuff/labels/needs:%20visual design) - tasks requiring visual/graphical design
-* [needs: documentation](https://github.com/Growstuff/growstuff/labels/needs:%20documentation)
-* [needs: data](https://github.com/Growstuff/growstuff/labels/needs:%20data) - tasks requiring data entry, data design, data import, or similar
-* [curated:beginner](https://github.com/Growstuff/growstuff/labels/curated:%20beginner) - tasks that are ideal for beginner programmers or people new to the project
+* [Design/Architecure](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Developer_Docs/ARCHITECURE.md) has the layout of the current application.  Design choices are stated.
+* [Design History](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) gives brief history of design and pivot points.
+* [Developer](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Developer_Docs/ARCHITECURE.md) has the features that can be easily added based on modularity of design.
+* [Meeting Minutes](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) touches on main ideas and concepts discussed at group meetings.
+
 
 Feel free to comment on any of the issues on [Github](https://github.com/tjlagrow/CIS-422-Group-Project-1/issues).
 
@@ -44,6 +40,6 @@ Feel free to comment on any of the issues on [Github](https://github.com/tjlagro
 
 For more information about this project, contact the following people: 
 - [Theodore J. LaGrow](mailto:tlagrow@uoregon.edu)
-- [Matt Almenshad](mailtto:almensha@uoregon.edu)
+- [Matt Almenshad](mailto:almensha@uoregon.edu)
 - [Kaiyu Song](mailto:kaiyus@uoregon.edu)
 - [Ryan Collier](mailto:fidgetyou@gmail.com)

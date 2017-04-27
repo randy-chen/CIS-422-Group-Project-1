@@ -1,7 +1,6 @@
-This is a list of contributors to Dijkstra's Dynamic Ducks's codebase.  We maintain
-this list because we often work in pairs and groups, but Github only knows about the
-person who actually does the commits. This gives credit to both members
-of the pair and groups.
+This is a list of contributors to Dijkstra's Dynamic Ducks's codebase.  Collectively,
+we coded together, problem solved the pitfalls, and found viable solutions.  The 
+credit is spread equally between all involved.
 
 If you contribute, please add yourself to the bottom of the list and
 submit the change with your pull request.
