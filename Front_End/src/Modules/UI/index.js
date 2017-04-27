@@ -7,6 +7,9 @@ import NavBar from './Nav_Bar/Nav_Bar'
 import Importer from './Nav_Bar/Buttons/Import_Button'
 import TeamViewer from './Team_Viewer/Team_Viewer'
 
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 class UI extends Component {
 	
 	constructor(props) {
@@ -61,7 +64,7 @@ class UI extends Component {
 				<p> Status: {this.state._current_phase} </p>
 				
 				{
-					(this.state._current_phase == "Processing") 
+					(this.state._current_phase == "Processing" || this.state._current_phase == "Exporting") 
 					&& 
 					<TeamViewer 
 						key="Team_Viewer" 
@@ -76,4 +79,4 @@ class UI extends Component {
 	}
 }
 
-export default UI;
+export default DragDropContext(HTML5Backend) (UI);

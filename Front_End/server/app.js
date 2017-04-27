@@ -37,11 +37,30 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
+app.get('/output', function(req, res){
+  var file = __dirname + '/../storage/output.csv';
+  res.download(file); // Set disposition and send it.
+});
 
-app.get('/download', function(req, res){
+app.get('/input', function(req, res){
   var file = __dirname + '/../storage/input.csv';
   res.download(file); // Set disposition and send it.
 });
+
+app.get('/process', function(req, res){
+	var python = require('child_process').spawn('python',
+		[path.resolve(__dirname, '..', '..', 'Back_End', 'Main.py')]
+	);
+
+	var output = "";
+	python.stdout.on('data', function(data){ output += data });
+		python.on('close', function(code){ 
+		console.log("[Back_End]: Execued python script (code:" + code + ")");
+		console.log("[python] Done. " + output);
+		res.status(200).send('All Good!');
+	});
+});
+
 
 app.post("/uploads", onUpload);
 

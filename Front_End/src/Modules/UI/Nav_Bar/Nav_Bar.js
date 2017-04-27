@@ -27,8 +27,10 @@ class NavBar extends Component {
 
 	handleImportedData(error, imported_data) {
 		if (error) {
+			console.log("Not Imported");
 			console.log(error);
 		} else {
+			console.log("Imported");
 			console.log(imported_data);
 			this.props.handleDataChange(imported_data);
 		}
@@ -51,6 +53,9 @@ class NavBar extends Component {
 			buttons.push(
 				<ProcessButton
 					handlePhaseChange = {this.handlePhaseChange}
+					handleImportedData = {this.handleImportedData} 
+					handleDataChange = {this.handleDataChange}  
+					requestViewerUpdate = {this.requestViewerUpdate} 
 					key="ProcessButton_0"
 				/>
 			);

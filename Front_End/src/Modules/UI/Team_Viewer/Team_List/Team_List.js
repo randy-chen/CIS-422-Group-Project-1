@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TeamMember from './Team_Member/Team_Member'
-
+import { DropTarget } from 'react-dnd';
 const ListContent = ({_caller}) => (
 
 	<tbody>
@@ -26,6 +26,21 @@ const ListContent = ({_caller}) => (
 	</tbody>	
 ); 
 
+const listTarget = {
+	drop(props, monitor) {
+		const item = monitor.getItem();
+		item.data['Assigned Team'] = props.list_id;
+		props.requestViewerUpdate();
+	}
+};
+
+function collect(connect, monitor) {
+	return {
+		connectDropTarget: connect.dropTarget(),
+		isOver: monitor.isOver()
+	};
+}
+
 class TeamList extends Component {
 	constructor(props) {
 		super(props);
@@ -47,19 +62,20 @@ class TeamList extends Component {
 					_caller = {this}
 				/>;
 		}
+
+		const {connectDropTarget, isOver } = this.props;
 	
-		return (
-		
-		<table>
-			<thead>
-				<tr>
-					<th colspan="3">{this.props.title}</th>
-				</tr>
-			</thead>
-			{List}				
-		</table>
+		return connectDropTarget(
+			<table>
+				<thead>
+					<tr>
+						<th colspan="3">{this.props.title}</th>
+					</tr>
+				</thead>
+				{List}				
+			</table>
 		);
 	}
 }
 
-export default TeamList;
+export default DropTarget("team_view_item", listTarget, collect) (TeamList);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+import {csv} from 'd3-request';
 
 class ProcessButton extends Component {
 
@@ -7,11 +9,27 @@ class ProcessButton extends Component {
 		super(props);
 		
 		this.handleClick = this.handleClick.bind(this);
-	}
+            this.handleProcessResponse = this.handleProcessResponse.bind(this);
+      }
+
+      handleProcessResponse(response){
+		csv("/output", this.props.handleImportedData);
+		console.log(this);
+		console.log(response);	
+
+      }
+
+
 
 	handleClick(e){
-		this.props.handlePhaseChange("Exporting");
-	}
+
+	axios.get('/process')
+		.then(this.handleProcessResponse)
+		.catch(function (error) {
+			console.log("Axios: " + error);
+	});	
+	this.props.handlePhaseChange("Exporting");
+}
 
 	render() {
 

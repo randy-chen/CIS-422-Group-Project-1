@@ -4,7 +4,7 @@
 import sys
 import csv
 import ast
-
+import os
 
 
 def Start():
@@ -32,14 +32,14 @@ def Start():
 
             row.append("Assigned Team")
             row.append("Assigned Team 2")
-            row.append("Assigned Team 2")
+            row.append("Assigned Team 3")
             all.append(row)
             next(cList)
 
            
             # running the program
             deal = Deal()
-            Input = deal.ImportList(file)
+            Input = deal.ImportList(inputfilepath)
             bl = Buildlist(Input)
             OutPut = bl.Final()
             
