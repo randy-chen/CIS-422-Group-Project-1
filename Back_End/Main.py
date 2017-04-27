@@ -12,11 +12,14 @@ def Start():
     Start() runs the full stack of the algorithm.  
     Takes in a csv and exports a csv in the correct location for React.
     """
-    inputFile = '../Front_End/storage/input.csv'
-    outputFile = "../Front_End/storage/input.csv"
-    with open(inputFile,'r') as csvinput:
-        with open(outputFile, "w") as csvoutput:
 
+    dirpath = os.path.dirname(os.path.abspath(__file__))
+    inputfile = '../Front_End/storage/input.csv'
+    outputfile = '../Front_End/storage/output.csv'
+    inputfilepath = os.path.join(dirpath, inputfile)
+    outputfilepath = os.path.join(dirpath, outputfile)
+    with open(inputfilepath,'r') as csvinput:
+        with open(outputfilepath, "w") as csvoutput:
 
             # writing to the output csv
             writer = csv.writer(csvoutput, lineterminator='\n')
