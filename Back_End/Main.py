@@ -6,9 +6,9 @@ from random import randint
 
 
 def Start():
-    file = 'Test_Data_For_422_Large.csv'
+    file = '../Front_End/storage/input.csv'
     with open(file,'r') as csvinput:
-        with open("./OutputCSV/TeamsAssingned.csv", "w") as csvoutput:
+        with open("../Front_End/storage/input.csv", "w") as csvoutput:
            
             ### Kaiyu code
             deal = Deal()
@@ -222,7 +222,7 @@ class Buildlist:
         return None
 
     def Creat(self):
-        filename = "./Permutations/25000/" + str(self.__NoP) + ".txt"
+        filename = "./Permutations/10000/" + str(self.__NoP) + ".txt"
         f = open(filename, 'r')
         for Line in f:
             Line = ast.literal_eval(Line)
