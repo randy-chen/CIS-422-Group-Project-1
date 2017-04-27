@@ -1,5 +1,5 @@
 # Dijkstra's Dynamic Ducks
-# CIS-422-Group-Project-1
+## CIS 422 Group Project 1
 
 Welcome to the Team Builder Project!
 
@@ -22,7 +22,7 @@ most overlap. Giving your students the best chance to be the best team they can 
 
 ## Important Links Starting Out
 
-* [Installing](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/User_Docs/INSTALL.md) (this document will help you download the necessary components for the application)
+* [Installing](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Installation-Guide) (this document will help you download the necessary components for the application)
 * [First Walk Through](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/User_Docs/USE.md) (gives an initial walk through of how to use the application)
 
 
