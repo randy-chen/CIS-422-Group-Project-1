@@ -35,7 +35,7 @@ chmod +x install.sh
 Here on Github, you might find these useful:
 
 * [Developer/Architecure](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Developer-Architecture) has the layout of the current application.  Design choices are stated.
-* [Design History](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) gives brief history of design and pivot points.
+* [Design History](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Design-History) gives brief history of design and pivot points.
 * [Moving Forward](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Moving-Forward) lays out the ideas, plans, and goals for the future development of the project.
 
 
