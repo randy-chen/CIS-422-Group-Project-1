@@ -6,6 +6,10 @@ from random import randint
 
 
 def Start():
+    """
+    Start() runs the full stack of the algorithm.  
+    Takes in a csv and exports a csv in the correct location for React.
+    """
     file = '../Front_End/storage/input.csv'
     with open(file,'r') as csvinput:
         with open("../Front_End/storage/input.csv", "w") as csvoutput:
@@ -26,7 +30,7 @@ def Start():
                 print()
                 print()
                 print("Model ", M)
-                print("Model Grade ", Model.GetGrade())
+                print("Model Grade ", Model.GetGrade()) #Getting the overal score
                 print()
                 print()
                 """
@@ -70,10 +74,6 @@ def Start():
             teamSize = round((len(csv_list)-1)/3)
             next(cList)
 
-
-     
-        
-
             for row in cList:
                 row.append(finalTeams[row[1]])
                 all.append(row)
@@ -84,18 +84,27 @@ def Start():
     
     csvinput.close()
 
-
     return None
 
 class Deal:
-    ###########################
-    ### Import info from csv file. Should be passed the file name
-    ### with an .csv ending. Only looks in current directory.
-    ### Will look for colums with "Name" and "Email" in them
-    ### to identify which columns to use. (Does not check ID, yet.)
-    ### Returns a list of lists with:
-    ### [[name, email, [True, False, etc],[
-    def ImportList(self, fileName):  # fileName should end in .csv
+    """
+    Import info from csv file. Should be passed the file name
+    with an .csv ending. Only looks in current directory.
+    Will look for colums with "Name" and "Email" in them
+    to identify which columns to use. (Does not check ID, yet.)
+    Returns a list of lists with:
+    [[name, email, [True, False, etc],[
+    """
+    def ImportList(self, fileName): 
+        """
+        This function takes a string of times, (what Google gives us)
+        splits them on the ; and turns them into a True or False
+        in the availableTimes list.
+        It is assumed that there are only 13 time slots a day.
+        AKA dayOffset.
+        It is assumed that the earliest time available is 8am
+        AKA startOfDay
+        """
 
         try:  # to load the csv file.
             with open(fileName, 'r') as f:
@@ -104,12 +113,12 @@ class Deal:
         except:
             sys.exit("Unable to find the file " + fileName)
 
-            # print (csv_list)
+            # print (csv_list) #uncomment for testing
 
         weekDay = {'Sunday': 0, 'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6}
         weekDict = {'Sunday': -1, 'Monday': -1, 'Tuesday': -1, 'Wednesday': -1, 'Thursday': -1, 'Friday': -1,
                     'Saturday': -1}
-        listHeaders = []  # What did they name the columns in the CSV?
+        listHeaders = []  # What did the input file name the columns in the CSV
         fullName = None
         IDnumber = None
         eMail = None
@@ -166,15 +175,10 @@ class Deal:
         f.close()
         return firstList
 
-    ##############################
-    ### This function takes a string of times, (what Google gives us)
-    ### splits them on the ; and turns them into a True or False
-    ### in the availableTimes list.
-    ### It is assumed that there are only 13 time slots a day.
-    ### AKA dayOffset.
-    ### It is assumed that the earliest time available is 8am
-    ### AKA startOfDay
     def TimeSplit(self, dayString, availableTimes, dayOffset):
+        """
+        TimeSplit() sets the times of each person in the 3D data structure
+        """
         dayOffset = 13 * dayOffset
         startOfDay = 8
         endOfDay = startOfDay + 13
@@ -200,16 +204,29 @@ class Deal:
         return availableTimes
 
 class Buildlist:
-    def __init__(self, Input): #Input = [[name, ide, email, [True, False, False]],......]
+    """
+    
+    """
+    def __init__(self, Input):
+        """
+        Standard __init__ to initialize values used
+        Input = [[name, ide, email, [True, False, False]],......]
+        """
         self.__PersonList = []
         self.__NoP = 0
         self.__Final = [] #Final output
         self.BuildPersonList(Input)
 
     def GetNoP(self):
+        """
+        GetNoP() returns the number of people in the list
+        """
         return self.__NoP
 
-    def BuildPersonList(self, input): #Build person list by Input and decide number of four and three person team
+    def BuildPersonList(self, input):
+        """
+        Build person list by Input and decide number of four and three person team
+        """
         while len(input) != 0:
             person = input.pop(0)
             name = person.pop(0)
@@ -222,6 +239,9 @@ class Buildlist:
         return None
 
     def Creat(self):
+        """
+        
+        """
         filename = "./Permutations/10000/" + str(self.__NoP) + ".txt"
         f = open(filename, 'r')
         for Line in f:
@@ -356,22 +376,50 @@ class Team:
         return self.__Grade
 
 class Person:
+    """
+    The Person class holds the information and structure for
+    the row in the csv.  Included is:
+        name of the person
+        id for the person
+        email of the person
+        datas stored in the datalist for the perosn
+    """
     def __init__(self, name, id, email, datelist):
+        """
+        standard initialization for Person class
+        """
         self.__name = name
         self.__id = id
         self.__email = email
         self.__datelist = datelist
 
-    def getName(self): #Return the name of person
+    def getName(self):
+        """
+        Return the name of person
+        """
         return self.__name
 
-    def getID(self): #Return the ID of person
+    def getID(self):
+        """
+        Return the ID of person
+        """
         return self.__id
 
-    def getEmail(self): #Return the email of person
+    def getEmail(self):
+        """
+        Return the email of person
+        """
         return self.__email
 
-    def getDateList(self): #Return the availbale time list of person
+    def getDateList(self):
+        """
+        Return the availbale time list of person
+        """
         return self.__datelist
 
-Start()
+
+if __name__ == "__main__":
+    """
+    Initialize Program
+    """
+    Start() 
