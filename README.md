@@ -36,8 +36,12 @@ Here on Github, you might find these useful:
 * [needs: data](https://github.com/Growstuff/growstuff/labels/needs:%20data) - tasks requiring data entry, data design, data import, or similar
 * [curated:beginner](https://github.com/Growstuff/growstuff/labels/curated:%20beginner) - tasks that are ideal for beginner programmers or people new to the project
 
-Feel free to comment on any of the issues on [Github](https://github.com/Growstuff/growstuff/issues).
+Feel free to comment on any of the issues on [Github](https://github.com/tjlagrow/CIS-422-Group-Project-1/issues).
 
 ## Contact
 
-For more information about this project, contact [info@growstuff.org](mailto:info@growstuff.org).
+For more information about this project, contact the following people: 
+- [Theodore J. LaGrow](mailto:info@growstuff.org)
+- [Matt Almenshad](mailtto:almensha@uoregon.edu)
+- [Kaiyu Song](mailto:kaiyus@uoregon.edu)
+- [Ryan Collier](mailto:fidgetyou@gmail.com)
