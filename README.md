@@ -22,6 +22,7 @@ most overlap. Giving your students the best chance to be the best team they can 
 
 ## Important links
 
+These need to be updated 
 * [Issues](http://github.com/Growstuff/growstuff/issues) (features we're
   working on, known bugs, etc)
 * [Wiki](https://github.com/Growstuff/growstuff/wiki) (general documentation, etc. Help by migrating from the [old wiki](https://web.archive.org/web/*/wiki.growstuff.org))
@@ -29,6 +30,7 @@ most overlap. Giving your students the best chance to be the best team they can 
 
 Here on Github, you might find these useful:
 
+These need to be updated
 * [Waffle](http://waffle.io/Growstuff/growstuff) has stories in "ready" that can be worked on.
 * [needs: design](https://github.com/Growstuff/growstuff/labels/needs:%20design) - tasks requiring high-level design
 * [needs: visual design](https://github.com/Growstuff/growstuff/labels/needs:%20visual design) - tasks requiring visual/graphical design
@@ -41,7 +43,7 @@ Feel free to comment on any of the issues on [Github](https://github.com/tjlagro
 ## Contact
 
 For more information about this project, contact the following people: 
-- [Theodore J. LaGrow](mailto:info@growstuff.org)
+- [Theodore J. LaGrow](mailto:tlagrow@uoregon.edu)
 - [Matt Almenshad](mailtto:almensha@uoregon.edu)
 - [Kaiyu Song](mailto:kaiyus@uoregon.edu)
 - [Ryan Collier](mailto:fidgetyou@gmail.com)
