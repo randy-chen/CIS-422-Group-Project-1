@@ -1,5 +1,23 @@
-# Installation 
-## What you will need:
+How to Install:
+
+
+## What you will need ##
 Python3
 React
+Files from our Repo
+
+
+## How to install React ##
+https://facebook.github.io/react/docs/installation.html
+
+npm install -g create-react-app
+
+
+## How to install Python ##
+Depending on your computer, this may come pre-installed.
+https://www.python.org/downloads/
+
+
+## How to get files from our Repo ##
+git clone https://github.com/tjlagrow/CIS-422-Group-Project-1
 
