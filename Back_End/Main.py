@@ -256,7 +256,9 @@ class Buildlist:
         """
         
         """
+        dirpath = os.path.dirname(os.path.abspath(__file__))
         filename = "./Permutations/10000/" + str(self.__NoP) + ".txt"
+        filename = os.path.join(dirpath, filename)
         f = open(filename, 'r')
         for Line in f:
             Line = ast.literal_eval(Line)
