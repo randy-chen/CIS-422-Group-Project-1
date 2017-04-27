@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
+# Main.py
+
 import sys
 import csv
 import ast
-from random import randint
 
 
 
@@ -10,56 +12,15 @@ def Start():
     Start() runs the full stack of the algorithm.  
     Takes in a csv and exports a csv in the correct location for React.
     """
-    file = '../Front_End/storage/input.csv'
+    file = "Test_Data_For_422_Large.csv"
+    #file = '../Front_End/storage/input.csv'
+    outputFile = "outputs.csv"
+    #outputFile = "../Front_End/storage/input.csv"
     with open(file,'r') as csvinput:
-        with open("../Front_End/storage/input.csv", "w") as csvoutput:
-           
-            ### Kaiyu code
-            deal = Deal()
-            Input = deal.ImportList(file)
-            bl = Buildlist(Input)
-            OutPut = bl.Final()
-
-            # There are 3 models stored in the OutPut
-            
-            M = 0
-            for Model in OutPut:
-                finalTeams = {}
-                teamCounter = 0
-                """
-                print()
-                print()
-                print("Model ", M)
-                print("Model Grade ", Model.GetGrade()) #Getting the overal score
-                print()
-                print()
-                """
-                TeamList = Model.GetTeamList()
-                T = 0
-                for Team in TeamList:
-                    T += 1
-                    
-                    #print("Team", T)
-                    #print("Team score ", Team.GetMeetingTime())
-                    teamCounter += Team.GetMeetingTime()
-                    
-                    PersonList = Team.getPersonList()
-                    for Person in PersonList:
-                        #print(Person.getName())
-                        finalTeams[Person.getName()] = T
-                """
-                print()
-                avgTeamMeetingTime = float(teamCounter/Model.GetNumberOfTeams())
-                print(avgTeamMeetingTime)
-                print()
-                print("Model {0}: \n {1}".format(M, finalTeams))
-                """
-                M += 1
+        with open(outputFile, "w") as csvoutput:
 
 
-
-
-
+            # writing to the output csv
             writer = csv.writer(csvoutput, lineterminator='\n')
             reader = csv.reader(csvinput)
             csv_list = list(reader)
@@ -69,22 +30,76 @@ def Start():
             cList = iter(csv_list)
 
             row.append("Assigned Team")
+            row.append("Assigned Team 2")
+            row.append("Assigned Team 2")
             all.append(row)
-
-            teamSize = round((len(csv_list)-1)/3)
             next(cList)
 
+           
+            # running the program
+            deal = Deal()
+            Input = deal.ImportList(file)
+            bl = Buildlist(Input)
+            OutPut = bl.Final()
+            
+            M = 0
+            finalTeams0 = {}
+            finalTeams1 = {}
+            finalTeams2 = {}
+            for Model in OutPut:
+                """
+                # uncomment for testing
+                print("Model ", M) 
+                print("Model Grade ", Model.GetGrade()) #Getting the overal score
+                """
+                TeamList = Model.GetTeamList()
+                T = 0
+                for Team in TeamList:
+                    T += 1
+                    """
+                    # uncomment for testing
+                    print("Team", T)
+                    print("Team score ", Team.GetMeetingTime())
+                    """             
+                    PersonList = Team.getPersonList()
+                    for Person in PersonList:
+                        """
+                        # uncomment for testing
+                        print(Person.getName())
+                        """
+                        if M == 0:
+                            finalTeams0[Person.getName()] = T
+                        elif M == 1:
+                            finalTeams1[Person.getName()] = T
+                        elif M == 2:
+                            finalTeams2[Person.getName()] = T
+
+                """
+                # uncomment for testing
+                print()
+                avgTeamMeetingTime = float(teamCounter/Model.GetNumberOfTeams())
+                print(avgTeamMeetingTime)
+                print()
+                print("Model {0}: \n {1}".format(M, finalTeams))
+                """
+                M += 1
+
+            # adding the top 3 teams to the columns
             for row in cList:
-                row.append(finalTeams[row[1]])
+                row.append(finalTeams0[row[1]])
+                row.append(finalTeams1[row[1]])
+                row.append(finalTeams2[row[1]])
                 all.append(row)
 
-
+                
             writer.writerows(all)
         csvoutput.close()
     
     csvinput.close()
 
     return None
+
+
 
 class Deal:
     """
@@ -112,7 +127,6 @@ class Deal:
                 csv_list = list(reader)
         except:
             sys.exit("Unable to find the file " + fileName)
-
             # print (csv_list) #uncomment for testing
 
         weekDay = {'Sunday': 0, 'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6}
@@ -169,7 +183,6 @@ class Deal:
                     availableTimes = self.TimeSplit(dayStr, availableTimes, weekDay[key])
 
             personData.append(availableTimes)
-            # print (personData)
             firstList.append(personData)
 
         f.close()
@@ -209,7 +222,8 @@ class Buildlist:
     """
     def __init__(self, Input):
         """
-        Standard __init__ to initialize values used
+
+        standard initialization for Buildlist class
         Input = [[name, ide, email, [True, False, False]],......]
         """
         self.__PersonList = []
@@ -276,6 +290,9 @@ class Buildlist:
 
 class Model:
     def __init__(self, TeamList):
+        """
+        standard initialization for Model class
+        """
         self.__TeamList = TeamList
         self.__NumberOfTeams = len(self.__TeamList)
         self.__Grade = 0
@@ -296,7 +313,11 @@ class Model:
 
 
 class Team:
-    def __init__(self, PersonList): #Take four or three person information to build team
+    def __init__(self, PersonList): 
+        """
+        standard initialization for Team class
+        takes four or three person information to build team
+        """
         self.__memberList = PersonList
         self.__numberofteam = len(self.__memberList)
         self.__meetList = []
