@@ -1,0 +1,6 @@
+				<CSVLink data={_data}
+					filename={"my-file.csv"}
+					className="btn btn-primary"
+				target="_blank">
+					Download me
+				</CSVLink>

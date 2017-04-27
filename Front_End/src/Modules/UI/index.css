@@ -1,0 +1,60 @@
+.App {
+  text-align: center;
+}
+
+table {
+  text-align: center;
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #ed1c40;
+  width: 200px;
+  margin: 50px auto;
+  border-radius: .25rem;
+  float:left;
+  margin-left:10px;
+}
+
+thead tr:first-child {
+  background: #ed1c40;
+  color: #fff;
+  border: none;
+  width: 100%;
+}
+
+th:first-child,
+td:first-child {
+  text-align: center;
+  width: 100%;
+}
+
+thead tr:last-child th {
+  border-bottom: 3px solid #ddd;
+  text-align: center;
+  width: 100%;
+}
+
+tbody tr:hover {
+  background-color: rgba(237, 28, 64, .1);
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+
+tbody tr:last-child td {
+  border: none;
+  text-align: center;
+  width: 100%;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  text-align: center;
+}
+
+td:last-child {
+  text-align: center;
+  width: 100%;
+  padding-right: 10px;
+}

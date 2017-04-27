@@ -1,0 +1,18 @@
+#nav {
+  background-color: black;
+  border: 1px solid gold;
+  height: 60px;
+}
+
+.nav-btn{
+  margin: 15px 0px 0px 0px;
+  background-color:black; 
+  height: 32px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 1px 5px;
+  color: gold;
+  border-color: gold;
+  font-size: 20px;
+}
