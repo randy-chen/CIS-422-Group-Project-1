@@ -1,25 +1,90 @@
 import sys
 import csv
 import ast
+from random import randint
+
+
 
 def Start():
-    deal = Deal()
-    fileName = 'Test_Data_For_422_Small.csv' #need to hardcode the path from react
-    Input = deal.ImportList(fileName)
-    bl = Buildlist(Input)
-    OutPut = bl.Final()
-    M = 0
-    for Model in OutPut:
-        M += 1
-        print("Model", M)
-        TeamList = Model.GetTeamList()
-        T = 0
-        for Team in TeamList:
-            T += 1
-            print("Team", T)
-            PersonList = Team.getPersonList()
-            for Person in PersonList:
-                print(Person.getName())
+    file = 'Test_Data_For_422_Large.csv'
+    with open(file,'r') as csvinput:
+        with open("./OutputCSV/TeamsAssingned.csv", "w") as csvoutput:
+           
+            ### Kaiyu code
+            deal = Deal()
+            Input = deal.ImportList(file)
+            bl = Buildlist(Input)
+            OutPut = bl.Final()
+
+            # There are 3 models stored in the OutPut
+            
+            M = 0
+            for Model in OutPut:
+                finalTeams = {}
+                teamCounter = 0
+                """
+                print()
+                print()
+                print("Model ", M)
+                print("Model Grade ", Model.GetGrade())
+                print()
+                print()
+                """
+                TeamList = Model.GetTeamList()
+                T = 0
+                for Team in TeamList:
+                    T += 1
+                    
+                    #print("Team", T)
+                    #print("Team score ", Team.GetMeetingTime())
+                    teamCounter += Team.GetMeetingTime()
+                    
+                    PersonList = Team.getPersonList()
+                    for Person in PersonList:
+                        #print(Person.getName())
+                        finalTeams[Person.getName()] = T
+                """
+                print()
+                avgTeamMeetingTime = float(teamCounter/Model.GetNumberOfTeams())
+                print(avgTeamMeetingTime)
+                print()
+                print("Model {0}: \n {1}".format(M, finalTeams))
+                """
+                M += 1
+
+
+
+
+
+            writer = csv.writer(csvoutput, lineterminator='\n')
+            reader = csv.reader(csvinput)
+            csv_list = list(reader)
+            all = []
+
+            row = csv_list[0]
+            cList = iter(csv_list)
+
+            row.append("Assigned Team")
+            all.append(row)
+
+            teamSize = round((len(csv_list)-1)/3)
+            next(cList)
+
+
+     
+        
+
+            for row in cList:
+                row.append(finalTeams[row[1]])
+                all.append(row)
+
+
+            writer.writerows(all)
+        csvoutput.close()
+    
+    csvinput.close()
+
+
     return None
 
 class Deal:
@@ -141,6 +206,9 @@ class Buildlist:
         self.__Final = [] #Final output
         self.BuildPersonList(Input)
 
+    def GetNoP(self):
+        return self.__NoP
+
     def BuildPersonList(self, input): #Build person list by Input and decide number of four and three person team
         while len(input) != 0:
             person = input.pop(0)
@@ -154,7 +222,7 @@ class Buildlist:
         return None
 
     def Creat(self):
-        filename = "./Permutations/10000/" + str(self.__NoP) + ".txt"
+        filename = "./Permutations/25000/" + str(self.__NoP) + ".txt"
         f = open(filename, 'r')
         for Line in f:
             Line = ast.literal_eval(Line)
@@ -189,6 +257,7 @@ class Buildlist:
 class Model:
     def __init__(self, TeamList):
         self.__TeamList = TeamList
+        self.__NumberOfTeams = len(self.__TeamList)
         self.__Grade = 0
         self.CG()
 
@@ -202,6 +271,10 @@ class Model:
     def GetGrade(self):
         return self.__Grade
 
+    def GetNumberOfTeams(self):
+        return self.__NumberOfTeams
+
+
 class Team:
     def __init__(self, PersonList): #Take four or three person information to build team
         self.__memberList = PersonList
@@ -210,6 +283,9 @@ class Team:
         self.__meetingtime = 0
         self.__Grade = -1000
         self.Devid()
+
+    def GetMeetingTime(self):
+        return self.__meetingtime
 
     def Devid(self):
         if (self.__memberList == 4):
