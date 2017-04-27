@@ -1,0 +1,2 @@
+1. run the command: chmod +x install.sh to make the install script executable
+2. run ./install
