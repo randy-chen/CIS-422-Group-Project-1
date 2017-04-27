@@ -36,7 +36,7 @@ Here on Github, you might find these useful:
 
 * [Developer/Architecure](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Developer-Architecture) has the layout of the current application.  Design choices are stated.
 * [Design History](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) gives brief history of design and pivot points.
-* [Meeting Minutes](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) touches on main ideas and concepts discussed at group meetings.
+* [Moving Forward](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Moving-Forward) lays out the ideas, plans, and goals for the future development of the project.
 
 
 Feel free to comment on any of the issues on [Github](https://github.com/tjlagrow/CIS-422-Group-Project-1/issues).
