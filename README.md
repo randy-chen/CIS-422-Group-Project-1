@@ -12,7 +12,7 @@ At the moment, this program will allow you to sort a classroom of people into th
 of around three people.  We are an inclusive, welcoming project, and encourage participation from 
 people of all backgrounds and skill levels.
 
-Given a CSV file with each student's name and available times throughout the week,
+Given a .csv file with each student's name and available times throughout the week,
 our program will give you the top three team configurations in beautiful React.
 
 We do this by sorting through a proportionally relevant sub-set of the given student data.
