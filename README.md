@@ -36,7 +36,7 @@ Here on Github, you might find these useful:
 
 * [Design/Architecure](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Developer_Docs/ARCHITECURE.md) has the layout of the current application.  Design choices are stated.
 * [Design History](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) gives brief history of design and pivot points.
-* [Developer](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Developer_Docs/ARCHITECURE.md) has the features that can be easily added based on modularity of design.
+* [Developer](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Developer-Architecture) has the features that can be easily added based on modularity of design.
 * [Meeting Minutes](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) touches on main ideas and concepts discussed at group meetings.
 
 
