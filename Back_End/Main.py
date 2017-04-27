@@ -12,11 +12,9 @@ def Start():
     Start() runs the full stack of the algorithm.  
     Takes in a csv and exports a csv in the correct location for React.
     """
-    file = "Test_Data_For_422_Large.csv"
-    #file = '../Front_End/storage/input.csv'
-    outputFile = "outputs.csv"
-    #outputFile = "../Front_End/storage/input.csv"
-    with open(file,'r') as csvinput:
+    inputFile = '../Front_End/storage/input.csv'
+    outputFile = "../Front_End/storage/input.csv"
+    with open(inputFile,'r') as csvinput:
         with open(outputFile, "w") as csvoutput:
 
 
@@ -91,7 +89,6 @@ def Start():
                 row.append(finalTeams2[row[1]])
                 all.append(row)
 
-                
             writer.writerows(all)
         csvoutput.close()
     
@@ -272,6 +269,10 @@ class Buildlist:
         return None
 
     def GetFinal(self, Permunatetion):
+        """
+        GetFinal() will take the given permutation rank each perm
+        and keep the top three
+        """
         if(self.__Final == []):
             self.__Final.append(Permunatetion)
         else:
@@ -286,6 +287,9 @@ class Buildlist:
         return None
 
     def Final(self):
+        """
+        returns the final permutations
+        """
         return self.__Final
 
 class Model:
@@ -303,16 +307,28 @@ class Model:
             self.__Grade += team.GetGrade()
 
     def GetTeamList(self):
+        """
+        returns the lists on the team
+        """
         return self.__TeamList
 
     def GetGrade(self):
+        """
+        returns the permutations weighted score
+        """
         return self.__Grade
 
     def GetNumberOfTeams(self):
+        """
+        returns the number of teams in the Model
+        """
         return self.__NumberOfTeams
 
 
 class Team:
+    """
+
+    """
     def __init__(self, PersonList): 
         """
         standard initialization for Team class
