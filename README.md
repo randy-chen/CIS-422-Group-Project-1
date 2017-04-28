@@ -1,7 +1,8 @@
 # Dijkstra's Dynamic Ducks
-## CIS 422 Group Project 1
+## CIS 422 Group Project 1 (<a href="http://138.197.196.92:9000/" target="_blank">Demo</a>) 
 
 Welcome to the Team Builder Project!
+
 
 ![alt text](https://github.com/tjlagrow/CIS-422-Group-Project-1/blob/master/Other_Files/dijkras_duck.png)
 
