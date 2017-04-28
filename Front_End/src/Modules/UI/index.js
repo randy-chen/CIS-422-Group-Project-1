@@ -7,6 +7,8 @@ import NavBar from './Nav_Bar/Nav_Bar'
 import Importer from './Nav_Bar/Buttons/Import_Button'
 import TeamViewer from './Team_Viewer/Team_Viewer'
 
+import DancingJoesephImage from '../../../public/assets/dancing_joeseph.gif';
+
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -75,11 +77,14 @@ class UI extends Component {
 					</div>
 				}
 				{(this.state._current_phase == "Processing") && 
+					<section>
 					<div className="directions">
 						Processing...
 						<br/> 
 						Please wait while our algorithim generates an optimal team formation for your data.
 					</div>
+					<img src={DancingJoesephImage}/>
+					</section>
 				}
 				{(this.state._current_phase == "Editing") && 
 					<div className="directions">
