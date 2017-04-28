@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import {CSVLink} from 'react-csv';
 
-class ExportButton extends Component {
+class FinishButton extends Component {
 
 	constructor (props) {
 		super(props);
@@ -23,4 +23,4 @@ class ExportButton extends Component {
 	}
 }
 
-export default ExportButton;
+export default FinishButton;
