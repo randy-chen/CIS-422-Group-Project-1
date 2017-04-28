@@ -24,6 +24,8 @@ most overlap. Giving your students the best chance to be the best team they can 
 
 ## Important Links Starting Out
 
+* This project has successfully been known to work with Ubuntu Linux.
+
 * [Installing](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Installation-Guide) (this document will help you download the necessary components for the application)
 
 * [First Walk Through](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/User) (gives an initial walk through of how to use the application)
@@ -34,9 +36,10 @@ Here on Github, you might find these useful:
 * [Developer/Architecure](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Developer-Architecture) has the layout of the current application.  Design choices are stated.
 * [Design History](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Design-History) gives brief history of design and pivot points.
 * [Moving Forward](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Moving-Forward) lays out the ideas, plans, and goals for the future development of the project.
+* [Looking for the output.csv file?](https://github.com/tjlagrow/CIS-422-Group-Project-1/blob/master/Front_End/storage/output.csv)
 
 
-Feel free to comment on any of the issues on [Github](https://github.com/tjlagrow/CIS-422-Group-Project-1/issues).
+Feel free to comment on any of the [issues on Github](https://github.com/tjlagrow/CIS-422-Group-Project-1/issues).
 
 ## Contact
 

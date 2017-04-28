@@ -218,7 +218,8 @@ class Deal:
 
 class Buildlist:
     """
-    
+    Buildlist is a class that will build the 3D data structure to store the information 
+    from the input.csv
     """
     def __init__(self, Input):
         """
@@ -254,7 +255,7 @@ class Buildlist:
 
     def Creat(self):
         """
-        
+        Creat() will evaluate the permutations
         """
         dirpath = os.path.dirname(os.path.abspath(__file__))
         filename = "./Permutations/10000/" + str(self.__NoP) + ".txt"
@@ -308,6 +309,9 @@ class Model:
         self.CG()
 
     def CG(self):
+        """
+        returns a calculated grade for team
+        """
         for team in self.__TeamList:
             self.__Grade += team.GetGrade()
 
@@ -332,7 +336,7 @@ class Model:
 
 class Team:
     """
-
+    Team class creates and scores the team for each iteration
     """
     def __init__(self, PersonList): 
         """
@@ -347,9 +351,15 @@ class Team:
         self.Devid()
 
     def GetMeetingTime(self):
+        """
+        returns the meeting times for a team
+        """
         return self.__meetingtime
 
     def Devid(self):
+        """
+        defines the people in each team depending on 3 or 4 team
+        """
         if (self.__memberList == 4):
             p1 = self.__memberList[0]
             p2 = self.__memberList[1]
@@ -362,7 +372,10 @@ class Team:
             p3 = self.__memberList[2]
             self.SORT3(p1, p2, p3)
 
-    def SORT3(self, p1, p2, p3): #Build the List of time which is worked for everyone in team
+    def SORT3(self, p1, p2, p3):
+        """
+        Build the List of time which is worked for everyone in team
+        """
         ML = []
         i = 0
         l1 = p1.getDateList()
@@ -379,7 +392,10 @@ class Team:
         self.CaculateTimeGrade()
         return None
 
-    def SORT4(self, p1, p2, p3, p4=None): #Build the List of time which is worked for everyone in team
+    def SORT4(self, p1, p2, p3, p4=None): 
+        """
+        Build the List of time which is worked for everyone in team
+        """
         ML = []
         i = 0
         l1 = p1.getDateList()
@@ -398,9 +414,15 @@ class Team:
         return None
 
     def getPersonList(self):
+        """
+        returns persons list
+        """
         return self.__memberList
 
     def CaculateTimeGrade(self):
+        """
+        calculates the weighted scores for the hours shared among the team
+        """
         T = self.__meetingtime
         if(T>0):
             self.__Grade = 0
@@ -415,6 +437,9 @@ class Team:
             return None
 
     def GetGrade(self):
+        """
+        returns the weighted score for the team
+        """
         return self.__Grade
 
 class Person:
