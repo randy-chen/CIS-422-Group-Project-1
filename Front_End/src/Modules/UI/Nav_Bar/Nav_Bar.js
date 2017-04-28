@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './Nav_Bar.css';
 import ImportButton from './Buttons/Import_Button'
 import ProcessButton from './Buttons/Process_Button'
+import FinishButton from './Buttons/Finish_Button'
 import ExportButton from './Buttons/Export_Button'
 import ReactUploadFile from 'react-upload-file';
 import {CSVLink} from 'react-csv';
@@ -61,19 +62,24 @@ class NavBar extends Component {
 			);
 
 			buttons.push(
-				<ExportButton
+				<FinishButton
 					_team_data={this.props._team_data}
 					handlePhaseChange = {this.handlePhaseChange}
-					key="ExportButton_0"
+					key="FinishButton_0"
 				/>
 			);
 
 		return (
 			<div id="nav">
 				{(this.props._current_phase == "Importing") && buttons[0]}
-				{(this.props._current_phase == "Processing") && buttons[1]}
-				{(this.props._current_phase == "Exporting") && buttons[2]}
-				{(this.props._current_phase == "Uploading") && <p>Uploading</p>}
+				{(this.props._current_phase == "Previewing") && buttons[1]}
+				{(this.props._current_phase == "Editing") && buttons[2]}
+				{(this.props._current_phase == "Exporting") && 	<ExportButton
+					_team_data={this.props._team_data}
+					handlePhaseChange = {this.handlePhaseChange}
+					key="ExportButton_0"
+				/>}
+				{(this.props._current_phase == "Uploading") && <p className="Status">Importing</p>}
 			</div>
 		);
 	}

@@ -7,21 +7,17 @@ class ExportButton extends Component {
 
 	constructor (props) {
 		super(props);
-            this.handleClick = this.handleClick.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
+      handleClick(e){
+  	    this.props.handlePhaseChange("Exporting");
+	}
 	render() {
 
 		return (
 			<section>
-				<CSVLink
-					data={this.props._team_data}
-					filename={"output.csv"}
-					className="btn btn-primary"
-					target="_blank"
-				>
-					<button className="nav-btn"> Export </button>
-				</CSVLink>		
+				<button onClick={this.handleClick} className="nav-btn"> Finish </button>
 			</section>
 		);
 	}

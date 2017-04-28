@@ -13,6 +13,7 @@ class ProcessButton extends Component {
       }
 
       handleProcessResponse(response){
+		this.props.handlePhaseChange("Editing");
 		csv("/output", this.props.handleImportedData);
 		console.log(this);
 		console.log(response);	
@@ -23,12 +24,12 @@ class ProcessButton extends Component {
 
 	handleClick(e){
 
+	this.props.handlePhaseChange("Processing");
 	axios.get('/process')
 		.then(this.handleProcessResponse)
 		.catch(function (error) {
 			console.log("Axios: " + error);
 	});	
-	this.props.handlePhaseChange("Exporting");
 }
 
 	render() {

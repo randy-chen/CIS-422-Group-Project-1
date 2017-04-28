@@ -60,11 +60,55 @@ class UI extends Component {
 					requestViewerUpdate = {this.handleViewerUpdateRequest} 
 					handleDataChange={this.handleDataChange}
 				/>
-
-				<p> Status: {this.state._current_phase} </p>
-				
+				{(this.state._current_phase == "Importing") && 
+					<div className="directions">
+						Welcome!
+						<br/> 
+						Choose the CSV file by clicking "Import" to begin the process.
+					</div>
+				}
+				{(this.state._current_phase == "Previewing") && 
+					<div className="directions">
+						Your data has been imported successfully!
+						<br/> 
+						Next, Click the process button to run the algorithim on your data.
+					</div>
+				}
+				{(this.state._current_phase == "Processing") && 
+					<div className="directions">
+						Processing...
+						<br/> 
+						Please wait while our algorithim generates an optimal team formation for your data.
+					</div>
+				}
+				{(this.state._current_phase == "Editing") && 
+					<div className="directions">
+						Done!
+						<br/> 
+						You may make any additional adjustments by dragging team members between teams.
+						<br/>
+						Once you are satisfied with your data, click finish to prepare the data for exporting.
+					</div>
+				}	
+				{(this.state._current_phase == "Exporting") && 
+					<div className="directions">
+						Your data is Ready!
+						<br/>
+						Click the Export button to save your final CSV.
+						<br/>
+						A file name "output.csv" will be begin downloading.
+						<br/>
+						In output file, each memeber row representing a memeber will have an addition column names 'Assigned Team' containing a value which indicate the team they have been assigned to.
+						<br/>
+						In addition to your final formation, two additional formations recomended by our alogorithim will be included.
+						<br/>
+						Thank you for using our services!
+						<br/>
+					</div>
+				}	
 				{
-					(this.state._current_phase == "Processing" || this.state._current_phase == "Exporting") 
+					(this.state._current_phase == "Editing" 
+					|| this.state._current_phase == "Previewing") 
 					&& 
 					<TeamViewer 
 						key="Team_Viewer" 

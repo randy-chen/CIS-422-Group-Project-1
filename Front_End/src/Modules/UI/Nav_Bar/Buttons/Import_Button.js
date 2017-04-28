@@ -26,7 +26,7 @@ class ImportButton extends Component {
 
 	handleUploadResponse(id, name, response){
 		if (response.success){
-			this.props.handlePhaseChange("Processing");
+			this.props.handlePhaseChange("Previewing");
 			csv("/input", this.props.handleImportedData);
 		} else {
 			console.log("[Upload Error]: " + response.error);
