@@ -1,3 +1,5 @@
+# Front End Design
+
 We decided to use ReactJS for the from end.
 ReactJS coupled with the ES6 Javasecript extended language provide a powerful component-driven platform that can fit the needs of our design.
 We wanted our design to be scalable, dynamic and cross-platform.
