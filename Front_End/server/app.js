@@ -48,7 +48,7 @@ app.get('/input', function(req, res){
 });
 
 app.get('/process', function(req, res){
-	var python = require('child_process').spawn('python',
+	var python = require('child_process').spawn('python3',
 		[path.resolve(__dirname, '..', '..', 'Back_End', 'Main.py')]
 	);
 
