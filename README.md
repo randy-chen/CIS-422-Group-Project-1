@@ -3,14 +3,16 @@
 
 Welcome to the Team Builder Project!
 
-This is the GitHub repository for the first group project for CIS 422 taught by Dr. Michael Young.
+![alt text](https://github.com/tjlagrow/CIS-422-Group-Project-1/blob/master/Other_Files/dijkras_duck.png)
 
-Founded in 2017, Dijkstra's Dynamic Ducks is composed of several [contributors](Documentation/Process/CONTRIBUTORS.md). 
+This is the GitHub repository for the first group project for CIS 422 Software Methodology taught by Dr. Michael Young.
+
+Founded in 2017, Dijkstra's Dynamic Ducks is composed of several [contributors](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Contributors). 
 At the moment, this program will allow you to sort a classroom of people into their best groups 
 of around three people.  We are an inclusive, welcoming project, and encourage participation from 
 people of all backgrounds and skill levels.
 
-Given a CSV file with each student's name and available times throughout the week,
+Given a .csv file with each student's name and available times throughout the week,
 our program will give you the top three team configurations in beautiful React.
 
 We do this by sorting through a proportionally relevant sub-set of the given student data.
@@ -23,15 +25,15 @@ most overlap. Giving your students the best chance to be the best team they can 
 ## Important Links Starting Out
 
 * [Installing](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Installation-Guide) (this document will help you download the necessary components for the application)
+
 * [First Walk Through](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/User) (gives an initial walk through of how to use the application)
 
 
 Here on Github, you might find these useful:
 
-* [Design/Architecure](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Developer_Docs/ARCHITECURE.md) has the layout of the current application.  Design choices are stated.
-* [Design History](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) gives brief history of design and pivot points.
-* [Developer](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Developer_Docs/ARCHITECURE.md) has the features that can be easily added based on modularity of design.
-* [Meeting Minutes](http://github.com/tjlagrow/CIS-422-Group-Project-1/Documentation/Process/DESIGN_HISTORY.md) touches on main ideas and concepts discussed at group meetings.
+* [Developer/Architecure](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Developer-Architecture) has the layout of the current application.  Design choices are stated.
+* [Design History](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Design-History) gives brief history of design and pivot points.
+* [Moving Forward](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Moving-Forward) lays out the ideas, plans, and goals for the future development of the project.
 
 
 Feel free to comment on any of the issues on [Github](https://github.com/tjlagrow/CIS-422-Group-Project-1/issues).
