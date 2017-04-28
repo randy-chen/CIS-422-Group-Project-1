@@ -24,7 +24,7 @@ most overlap. Giving your students the best chance to be the best team they can 
 
 ## Important Links Starting Out
 
-* This project has successfully been known to work with Ubuntu Linux.
+* This project has successfully been known to work with [Ubuntu Linux](https://www.ubuntu.com/).
 
 * [Installing](https://github.com/tjlagrow/CIS-422-Group-Project-1/wiki/Installation-Guide) (this document will help you download the necessary components for the application)
 
